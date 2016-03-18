@@ -1,5 +1,6 @@
 <?php
-
+//this is from online example.
+//will need moded
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $inputUsername = $_POST['username'];
     $inputPassword = $_POST['password'];

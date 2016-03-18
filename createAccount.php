@@ -16,19 +16,19 @@
     <br/>
     <br/>
     <form method="post" action="processCreateAccount.php" method="post" >
-        <span>First Name</span>
+        <span>First Name:</span>
         <input type="text" class="form-control" name="firstname" placeholder="First Name" />
         <br>
-        <span>Last Name</span>
+        <span>Last Name:</span>
         <input type="text" class="form-control" name="lastname" placeholder="Last Name" />
         <br>
-        <span>Email</span>
+        <span>Email:</span>
         <input type="email" class="form-control" name="email" placeholder="Email" required />
         <br>
-        <span>Username</span>
+        <span>Username:</span>
         <input type="text" class="form-control" name="username" placeholder="Username" required />
         <br />
-        <span>Password</span>
+        <span>Password:</span>
         <input type="password" class="form-control" name="password" placeholder="Password" required />
         <br />
         <div class="btn-group" id="login">
