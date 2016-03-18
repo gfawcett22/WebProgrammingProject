@@ -17,7 +17,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             setcookie('password', md5($_POST['password']), false, '/account', 'www.example.com');
         }
         header('Location: index.php');
-
+        exit();
     //} else {
     //    echo 'Username/Password Invalid';
     //}
