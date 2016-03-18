@@ -1,0 +1,25 @@
+#mainDiv {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#header {
+    padding: 8px;
+    height: 50px;
+}
+#title {
+    font-family: Arial;
+    font-size: 25px;
+    vertical-align: middle;
+}
+#login {
+    float: right;
+    display: block;
+}
+#create{
+    float:right;
+    display:block;
+}
+#createBtn{
+    float:right;
+}

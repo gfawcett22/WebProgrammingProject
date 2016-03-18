@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>News Caster 3000</title>
+    <title>Create Account</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./styles/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/login.css" rel="stylesheet"/>
@@ -10,20 +10,26 @@
 <div id="mainDiv">
     <div id="header">
         <a href="login.php">
-            <label id="title">News Caster 3000</label>
+            <label id="title">Create Account</label>
         </a>
     </div>
     <br/>
     <br/>
-    <form method="post" action="processLogin.php" method="post">
+    <form method="post" action="process.php" method="post" >
+        <span>First Name</span>
+        <input type="text" class="form-control" name="firstname" placeholder="First Name" />
+        <span>Last Name</span>
+        <input type="text" class="form-control" name="lastname" placeholder="Last Name" />
+        <span>Email</span>
+        <input type="text" class="form-control" name="email" placeholder="Email" />
         <span>Username</span>
-        <input type="text" class="form-control" placeholder="Username" />
+        <input type="text" class="form-control" name="username" placeholder="Username" />
         <br />
         <span>Password</span>
-        <input type="password" class="form-control" placeholder="Password" />
+        <input type="password" class="form-control" name="password" placeholder="Password" />
         <br />
         <div class="btn-group" id="login">
-            <button type="submit" class="btn btn-default"><a href="index.php">Login</a></button>
+            <button type="submit" class="btn btn-default"><a href="index.php">Create Account</a></button>
         </div>
         <br>
         <br>
