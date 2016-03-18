@@ -17,11 +17,14 @@
     <br/>
     <form method="post" action="processLogin.php" method="post">
         <span>Username</span>
-        <input type="text" class="form-control" placeholder="Username" />
+        <input type="text" class="form-control" name="username" placeholder="Username" />
         <br />
         <span>Password</span>
-        <input type="password" class="form-control" placeholder="Password" />
+        <input type="password" class="form-control" name="password" placeholder="Password" />
         <br />
+        <span>Remember me?</span>
+        <input type="checkbox" name="rememberme" value="1">
+        <br>
         <div class="btn-group" id="login">
             <button type="submit" class="btn btn-default"><a href="index.php">Login</a></button>
         </div>
