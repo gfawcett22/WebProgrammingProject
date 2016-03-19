@@ -1,27 +1,32 @@
 <?php
-//this is from online example.
-//will need moded
-if (isset($_POST['username']) && isset($_POST['password'])) {
+require_once('NewsCasterDatabase.php');
+$Database = new NewsCasterDatabase();
+
+if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['email'])) {
     $inputUsername = $_POST['username'];
     $inputPassword = $_POST['password'];
-    //make sure supplied username and password isnt in database
-    //if (($inputUsername == not in DB) && ($inputPassword == not in DB)) {
-
-        if (isset($_POST['rememberme'])) {
-            /* Set cookie to last 1 year */
-            setcookie('username', $_POST['username'], time()+60*60*24*365, '/account', 'www.example.com');
-            setcookie('password', md5($_POST['password']), time()+60*60*24*365, '/account', 'www.example.com');
-
-        } else {
-            /* Cookie expires when browser closes */
-            setcookie('username', $_POST['username'], false, '/account', 'www.example.com');
-            setcookie('password', md5($_POST['password']), false, '/account', 'www.example.com');
-        }
+    $inputEmail = $_POST['email'];
+    $inputFirstName = $_POST['firstname'];
+    $inputLastName = $_POST['lastname'];
+    $UserQueryString = "SELECT Username FROM users WHERE Username=" .$Database->db_quote($inputUsername);
+    $result = $Database->db_quote($UserQueryString);
+    $usernameStatus = $Database->db_select($result);
+    if($usernameStatus === NULL){
+        $insertUserData = "INSERT INTO users (FirstName, LastName, Email, Username, Pass) VALUES('$inputFirstName','$inputLastName', '$inputEmail', '$inputUsername', '$inputPassword')";
+        $temp = stripslashes($insertUserData);
+        $result = $Database->db_query($temp);
+        if(!($result)){
+            echo 'Failure to create User Account!';
+        }else{
+        /* Cookie expires when browser closes */
+        setcookie('username', $_POST['username'], false, '/', 'localhost');
+        setcookie('password', $_POST['password'], false, '/', 'localhost');
         header('Location: index.php');
         exit();
-    //} else {
-    //    echo 'Username/Password Invalid';
-    //}
+        }
+    } else {
+        echo 'Username/Password Invalid';
+    }
 
 } else {
     //redirect back to create account page

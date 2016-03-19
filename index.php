@@ -1,7 +1,8 @@
 <?php
     //make sure user cant just type index.html in url and get to page. has to have login cookie
-    if (!(isset($_COOKIE['username']) && isset($_COOKIE['password'])))
+    if (!(isset($_COOKIE['username']) && isset($_COOKIE['password']))){
         header("Location: login.php"); exit();
+	}
 ?>
 <html>
 <head>
