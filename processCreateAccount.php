@@ -19,8 +19,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['firs
             echo 'Failure to create User Account!';
         }else{
         /* Cookie expires when browser closes */
-        setcookie('username', $_POST['username'], false, '/', 'localhost');
-        setcookie('password', $_POST['password'], false, '/', 'localhost');
+        setcookie('username', $_POST['username'], false, '/', 'webdev.cs.kent.edu');
+        setcookie('password', $_POST['password'], false, '/', 'webdev.cs.kent.edu');
         header('Location: index.php');
         exit();
         }

@@ -12,12 +12,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if($inputPassword === $passwordResult[0]['Pass']){
         if (isset($_POST['rememberme'])) {
             /* Set cookie to last 1 year */
-            setcookie('username', $_POST['username'], time()+60*60*24*365, '/', 'localhost');
-            setcookie('password', $_POST['password'], time()+60*60*24*365, '/', 'localhost');
+            setcookie('username', $_POST['username'], time()+60*60*24*365, '/', 'webdev.cs.kent.edu');
+            setcookie('password', $_POST['password'], time()+60*60*24*365, '/', 'webdev.cs.kent.edu');
         } else {
             /* Cookie expires when browser closes */
-            setcookie('username', $_POST['username'], false, '/', 'localhost');
-            setcookie('password', $_POST['password'], false, '/', 'localhost');
+            setcookie('username', $_POST['username'], false, '/', 'webdev.cs.kent.edu');
+            setcookie('password', $_POST['password'], false, '/', 'webdev.cs.kent.edu');
         }
         header('Location: index.php');
         exit();
