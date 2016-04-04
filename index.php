@@ -1,8 +1,8 @@
 <?php
     //make sure user cant just type index.html in url and get to page. has to have login cookie
-    if (!(isset($_COOKIE['username']) && isset($_COOKIE['password']))){
-        header("Location: login.php"); exit();
-	}
+  //   if (!(isset($_COOKIE['username']) && isset($_COOKIE['password']))){
+  //       header("Location: login.php"); exit();
+	// }
 ?>
 <html>
 <head>
@@ -26,9 +26,15 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.php" id="header">News Caster 3000</a>
                 </div>
-                <p class="navbar-text navbar-right">
-                    Signed in as <?php echo $_COOKIE['username']; ?>
-                </p>
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello <?php if (isset($_COOKIE['username'])){echo $_COOKIE['username'];} else {echo 'User';} ?><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="editProfile.php">Edit Profile</a></li>
+                      <li><a href="logout.php">Log Out</a></li>
+                    </ul>
+                  </li>
+                </ul>
             </div>
         </nav>
 
