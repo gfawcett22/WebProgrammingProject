@@ -28,10 +28,14 @@
 </head>
 <body>
 <?php include 'indexHeader.php'; ?>
-<form id='profile'>
+<form id='profile' method="post" enctype="multipart/form-data">
   <div id='centeredDiv' class='container'>
     <div class='row'>
       <h2 class='title'>Edit Profile</h2>
+    </div>
+    <div class='row'>
+      <img id='profilePic'>
+      <input type='file' id='picUpload' name='picUpload'>
     </div>
     <div class='row midAlign'>
       <span class='text'>Tell us about yourself: <sub class='counter'></sub> </span>
