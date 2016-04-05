@@ -1,6 +1,38 @@
+body{
+  background-color: #e6e6e6;
+}
 #navigationBar{
     padding: 5px;
 }
 #header{
     font-size: 30px;
+}
+#centeredDiv{
+  max-width: 1200px;
+  margin-top: 50px;
+  height: 100vh;
+  margin-left: auto;
+  margin-right:auto;
+  border-left: .5px dashed gray;
+  border-right: .5px dashed gray;
+}
+.title{
+  padding:10px;
+}
+.midAlign{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#bio{
+  vertical-align: middle;
+}
+.text{
+  font-size:20px;
+}
+.counter{
+  font-size:14px!important;
+}
+.row{
+  padding:5px;
 }
