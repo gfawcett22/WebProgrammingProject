@@ -1,3 +1,14 @@
+<?php
+require_once('processAction.php');
+
+if(isset($_GET['action'])){
+	$action = $_GET['action'];
+	$alert = processAction($action);
+	echo $alert;
+}
+?>
+
+
 <html>
 <head>
     <title>Create Account</title>
