@@ -29,7 +29,7 @@
 </head>
 <body>
 <?php include 'indexHeader.php'; ?>
-<form id='profile' method="post" enctype="multipart/form-data">
+<form id='profile' method="post" action='saveProfile.php' enctype="multipart/form-data">
   <div id='centeredDiv' class='container'>
     <div class='row'>
       <h2 class='title'>Edit Profile</h2>
