@@ -34,5 +34,13 @@ body{
   font-size:14px!important;
 }
 .row{
-  padding:5px;
+  margin-bottom: 20px;
+}
+#location{
+  width:30%;
+}
+#profilePic{
+  max-width:150px;
+  max-height:150px;
+  margin:8px;
 }

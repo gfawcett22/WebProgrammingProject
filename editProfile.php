@@ -34,6 +34,9 @@
       <h2 class='title'>Edit Profile</h2>
     </div>
     <div class='row'>
+      <?php include 'getProfilePic.php'; ?>
+    </div>
+    <div class='row'>
       <img id='profilePic'>
       <input type='file' id='picUpload' name='picUpload'>
     </div>
@@ -42,8 +45,8 @@
       <textarea id='bio' name='bio' form='profile' cols="100" rows="6" maxlength="500"></textarea>
     </div>
     <div class='row midAlign'>
-      <span class='text'>Address</span>
-      <input type='text' name='address' id='address' maxlength="100" />
+      <span class='text'>Location: </span>
+      <input type='text' name='location' id='location' maxlength="100" />
     </div>
   </div>
 </form>
