@@ -61,6 +61,9 @@
         <input type='text' class='data' name='location' id='location' maxlength="100" />
       </div>
     </div>
+    <div class='row'>
+      <input type='submit' id='editSubmit' name='editSubmit' value="Save" class='btn btn-primary'>
+    </div>
   </div>
 </form>
 </body>
