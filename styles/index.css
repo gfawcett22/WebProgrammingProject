@@ -29,6 +29,21 @@ body{
 }
 .text{
   font-size:20px;
+  padding:5px;
+}
+.small{
+  width:38%;
+  display: inline-block;
+}
+.large{
+  width:58%;
+  display: inline-block;
+}
+.data{
+  width:100%;
+}
+#location{
+  width:70%!important;
 }
 .counter{
   font-size:14px!important;
@@ -36,11 +51,8 @@ body{
 .row{
   margin-bottom: 20px;
 }
-#location{
-  width:30%;
-}
 #profilePic{
-  max-width:150px;
-  max-height:150px;
+  max-width:200px;
+  max-height:200px;
   margin:8px;
 }

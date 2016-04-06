@@ -24,6 +24,7 @@
         var remaining = 500 - $('#bio').val().length;
         $('.counter').text('(' + remaining + ')');
       }
+      
     </script>
 </head>
 <body>
@@ -37,16 +38,28 @@
       <?php include 'getProfilePic.php'; ?>
     </div>
     <div class='row'>
-      <img id='profilePic'>
-      <input type='file' id='picUpload' name='picUpload'>
+      <div class='small'>
+        <span class='text'>Select an image for your profile: </span>
+      </div>
+      <div class='large'>
+        <input type='file' id='picUpload' name='picUpload'>
+      </div>
     </div>
-    <div class='row midAlign'>
-      <span class='text'>Tell us about yourself: <sub class='counter'></sub> </span>
-      <textarea id='bio' name='bio' form='profile' cols="100" rows="6" maxlength="500"></textarea>
+    <div class='row'>
+      <div class='small'>
+        <span class='text' >Tell us about yourself: <sub class='counter'></sub> </span>
+      </div>
+      <div class='large'>
+        <textarea id='bio' class='data' name='bio' form='profile' rows='3' maxlength="500"></textarea>
+      </div>
     </div>
-    <div class='row midAlign'>
-      <span class='text'>Location: </span>
-      <input type='text' name='location' id='location' maxlength="100" />
+    <div class='row'>
+      <div class='small'>
+        <span class='text'>Location: </span>
+      </div>
+      <div class='large'>
+        <input type='text' class='data' name='location' id='location' maxlength="100" />
+      </div>
     </div>
   </div>
 </form>
