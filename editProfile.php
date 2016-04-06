@@ -42,7 +42,7 @@
         <span class='text'>Select an image for your profile: </span>
       </div>
       <div class='large'>
-        <input type='file' id='picUpload' name='picUpload'>
+        <input type='file' id='picUpload' name='picUpload' >
       </div>
     </div>
     <div class='row'>
