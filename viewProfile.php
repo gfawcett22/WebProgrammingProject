@@ -18,14 +18,13 @@
 
 </head>
 <body>
-    <?php //include 'indexHeader.php'; ?>
+    <?php include 'indexHeader.php'; ?>
     <div id='centeredDiv' class='container'>
     <div class='row'>
-      <h2 class='title'><?php //echo 'Hello, '. $_COOKIE['username'] . '!' ;</h2>
+      <h2 class='title'><?php echo 'Hello, '. $_COOKIE['username'] . '!' ;?></h2>
     </div>
     <div class='row'>
       <?php include 'getProfilePic.php'; ?>
     </div>
-
 </body>
 </html>
