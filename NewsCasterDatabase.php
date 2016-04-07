@@ -9,12 +9,12 @@ class NewsCasterDatabase{
 
 
 	function __construct(){
-		$this->servername = "webdev.cs.kent.edu";
+		$this->servername = "localhost";
 		$this->databasename = "zdouglas";
 		$this->username = "zdouglas";
 		$this->password = "PavsuW09";
-		//$this->username = "username";
-		//$this->password = "password";
+		//$this->username = "zdouglas";
+		//$this->password = "";
 
 	}
 	/*
