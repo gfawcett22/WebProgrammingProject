@@ -3,7 +3,7 @@
 
   function saveFileGetPath(){
     $directory = './pictures/';
-    $destination = $directory . .basename($_FILES['profilePic']['name']);
+    $destination = $directory . basename($_FILES['profilePic']['tmp_name']);
     $imageFileType = pathinfo($destination , PATHINFO_EXTENSION);
     $uploadOk = 1;
     //make sure its image file
@@ -35,21 +35,20 @@
   if(isset($_POST['location'])){
     $location = $_POST['location'];
   }
-   echo $profilePicPath . ' ' . $bio . ' ' . $location;
-  // $database = new NewsCasterDatabase();
-  // //test if user has profile
-  // $userID = $COOKIE['ID'];
-  // $query = "Select bio, location, profilePicPath from `userProfileInfo` where userID = " . $userID;
-  // $profileExists = $database->db_select($query);
-  // if (is_null($profileExists){
-  //   $query = 'insert into `userProfileInfo` (bio, location, profilePicPath) values("'. $bio . '","' .  $location . '","' . $profilePicPath . '")';
-  //   $databse->db_select($query);
-  // }
-  // else{
-  //   $query = 'Update `userProfileInfo` set bio = "'. $bio . '", location = "' . $location . '", profilePicPath = "' . $profilePicPath . '" where userID =' . $userID;
-  //   $database->db_select($query);
-  // }
-//header ('Location: ./viewProfile.php');
+   //echo $profilePicPath . ' ' . $bio . ' ' . $location;
+  $database = new NewsCasterDatabase();
+  //test if user has profile
+  $query = "Select bio, location, profilePicPath from `userProfileInfo` where userID = " . $userID;
+  $profileExists = $database->db_select($query);
+  if (is_null($profileExists){
+    $query = 'insert into `userProfileInfo` (bio, location, profilePicPath) values("'. $bio . '","' .  $location . '","' . $profilePicPath . '")';
+    $databse->db_select($query);
+  }
+  else{
+    $query = 'Update `userProfileInfo` set bio = "'. $bio . '", location = "' . $location . '", profilePicPath = "' . $profilePicPath . '" where userID =' . $userID;
+    $database->db_select($query);
+  }
+header ('Location: ./viewProfile.php');
 
   
 ?>
