@@ -26,5 +26,12 @@
     <div class='row'>
       <?php include 'getProfilePic.php'; ?>
     </div>
+    <div class='row'>
+        <span>Bio: </span>
+
+    </div>
+    <div class='row'>
+        <span>Location: </span>
+    </div>
 </body>
 </html>

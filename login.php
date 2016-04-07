@@ -1,5 +1,5 @@
 <?php
-require_once('processAction.php');
+include_once 'processAction.php';
 
 if(isset($_GET['action'])){
 	$action = $_GET['action'];
