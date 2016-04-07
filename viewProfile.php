@@ -1,4 +1,11 @@
 <?php
+ include_once('processAction.php');
+
+  if(isset($_GET['action'])){
+    $action = $_GET['action'];
+    $alert = processAction($action);
+    echo $alert;
+}
 //error_reporting(E_ALL);
 //ini_set('display_errors', 'On');
 ?>
@@ -24,14 +31,15 @@
       <h2 class='title'><?php echo 'Hello, '. $_COOKIE['username'] . '!' ;?></h2>
     </div>
     <div class='row'>
-      <?php include 'getProfilePic.php'; ?>
+      <?php include './accessors/getProfilePic.php'; ?>
     </div>
     <div class='row'>
         <span>Bio: </span>
-
+        <?php include './accessors/getBio.php'; ?>
     </div>
     <div class='row'>
         <span>Location: </span>
+        <?php include './accessors/getLocation.php'; ?>
     </div>
 </body>
 </html>

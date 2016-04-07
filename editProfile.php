@@ -35,7 +35,7 @@
       <h2 class='title'>Edit Profile</h2>
     </div>
     <div class='row'>
-      <?php include 'getProfilePic.php'; ?>
+      <?php include './accessors/getProfilePic.php'; ?>
     </div>
     <div class='row'>
       <div class='small'>

@@ -25,6 +25,11 @@ function processAction($action){
               </div>';
               return $statement;
 			break;
+    case "filefailed":
+      $statement = '<div class="alert alert-info">
+              The file you tried uploading failed to save.  Please try again!
+              </div>';
+              return $statement;
     default:
           break;
   }

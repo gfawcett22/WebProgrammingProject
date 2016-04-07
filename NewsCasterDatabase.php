@@ -9,7 +9,7 @@ class NewsCasterDatabase{
 
 
 	function __construct(){
-		$this->servername = "localhost";
+		$this->servername = "webdev.cs.kent.edu";
 		$this->databasename = "zdouglas";
 		$this->username = "zdouglas";
 		$this->password = "PavsuW09";
@@ -62,7 +62,7 @@ class NewsCasterDatabase{
 			$rowArray[] = $row;
 		}
 		return $rowArray;
-	  }
+	  	}
 	  }
 	/*
 	 * Quote and escape value for database queries
@@ -73,6 +73,14 @@ class NewsCasterDatabase{
 	 public function db_quote($value){
 	 	$this->connection = $this->db_connect();
 		return  $this->connection->real_escape_string($value);
+	 }
+	 public function db_insert($query){
+	 	$this->connection = $this->db_connect();
+	 	if(mysqli_query($this->connection, $query)){
+	 		echo 'record created';
+	 	}else{
+	 		echo 'query unsuccessful';
+	 	}
 	 }
 }
 ?>
