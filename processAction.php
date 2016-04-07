@@ -30,6 +30,13 @@ function processAction($action){
               The file you tried uploading failed to save.  Please try again!
               </div>';
               return $statement;
+			break;
+    case "deleted":
+	$statement = '<div class="alert alert-info">
+		Your account has been deleted!
+		</div>';
+		return $statement;
+			break;
     default:
           break;
   }
