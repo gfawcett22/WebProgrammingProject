@@ -38,26 +38,26 @@
       <?php include './accessors/getProfilePic.php'; ?>
     </div>
     <div class='row'>
-      <div class='small'>
+      <div class='col-md-5'>
         <span class='text'>Select an image for your profile: </span>
       </div>
-      <div class='large'>
+      <div class='col-md-7'>
         <input type='file' id='picUpload' name='picUpload' >
       </div>
     </div>
     <div class='row'>
-      <div class='small'>
+      <div class='col-md-5'>
         <span class='text' >Tell us about yourself: <sub class='counter'></sub> </span>
       </div>
-      <div class='large'>
+      <div class='col-md-7'>
         <textarea id='bio' class='data' name='bio' form='profile' rows='3' maxlength="500"></textarea>
       </div>
     </div>
     <div class='row'>
-      <div class='small'>
+      <div class='col-md-5'>
         <span class='text'>Location: </span>
       </div>
-      <div class='large'>
+      <div class='col-md-7'>
         <input type='text' class='data' name='location' id='location' maxlength="100" />
       </div>
     </div>
