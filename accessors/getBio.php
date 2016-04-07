@@ -7,7 +7,7 @@
 	$query = 'select bio from `userProfileInfo` where userID =' . $userID;
 	$result = $database->db_select($query);
 	if(empty($result)){
-		echo '<div class="col-md-7"><span class="profileInfo">Edit your profile to add a bio. </span></div>';
+		echo '<div class="col-md-7"><span class="profileInfo">Edit your profile to add a </span></div>';
 	}
 	else{
 		echo '<div class="col-md-7"><span class="profileInfo">' . $result[0]['bio'] . '</span></div>';
