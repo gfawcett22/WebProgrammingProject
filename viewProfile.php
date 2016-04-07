@@ -34,11 +34,11 @@
       <?php include './accessors/getProfilePic.php'; ?>
     </div>
     <div class='row'>
-        <span>Bio: </span>
+        <div class='small'><span class='text'>Bio: </span></div>
         <?php include './accessors/getBio.php'; ?>
     </div>
     <div class='row'>
-        <span>Location: </span>
+        <div class='small'><span class='text'>Location: </span></div>
         <?php include './accessors/getLocation.php'; ?>
     </div>
 </body>
