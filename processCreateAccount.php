@@ -11,25 +11,20 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 	$inputLastName = $_POST['lastname'];
 
 	//Set query Strings
-	$emailQueryString = "SELECT Email FROM users where Email=" .$Database->db_quote($inputEmail);
-	$UserQueryString = "SELECT Username FROM users WHERE Username=" .$Database->db_quote($inputUsername);
-	$IDQueryString = "SELECT ID FROM users WHERE Username=" .$Database->db_quote($inputUsername);
+	$emailQueryString = "SELECT Email FROM users where Email= '$inputEmail'";
+	$UserQueryString = "SELECT Username FROM users WHERE Username= '$inputUsername'";
+	$IDQueryString = "SELECT ID FROM users WHERE Username= '$inputUsername'";
 
 	//Query DB for email and usernames
-	$usernameResult = $Database->db_quote($UserQueryString);
-	$usernameStatus = $Database->db_select($usernameResult);
-	
-	$emailResult = $Database->db_quote($emailQueryString);
+	$usernameStatus = $Database->db_select($UserQueryString);
 	$emailStatus = $Database->db_select($emailQueryString);
-	
-	$idResult = $Database->db_quote($IDQueryString);
-	$idStatus = $Database->db_select($IDqueryString);
 
+	//var_dump($usernameStatus);
 	//Checks if username and email are valid
-	if($usernameStatus !== NULL){
+	if($usernameStatus){
 		header('Location: ./CreateAccount.php?action=usernametaken');
 	}else{
-		if($emailStatus !== NULL){
+		if($emailStatus){
 			header('Location: ./CreateAccount.php?action=emailtaken');
 		}else{
 			$insertUserData = "INSERT INTO users (FirstName, LastName, Email, Username, Pass) VALUES('$inputFirstName','$inputLastName', '$inputEmail', '$inputUsername', '$inputPassword')";
@@ -38,13 +33,18 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 			if(!($usernameResult)){
 				header('Location: ./CreateAccount.php?action=error');
 			}else{
+				$IDStatus = $Database->db_select($IDQueryString);
 				/* Cookie expires when browser closes */
 				setcookie('username', $_POST['username'], false, '/', 'webdev.cs.kent.edu');
 				setcookie('password', $_POST['password'], false, '/', 'webdev.cs.kent.edu');
 				setcookie('ID', $idStatus, false, '/', 'webdev.cs.kent.edu');
-				header('Location: index.php');
+				//setcookie('username', $_POST['username'], time()+60*60*24*365, '/', 'localhost');
+				//setcookie('password', $_POST['password'], time()+60*60*24*365, '/', 'localhost');
+				//setcookie('ID', $IDResult, time()+60*60*24*365, '/', 'localhost');
+				header('Location: ./index.php?id='.$IDStatus[0]['ID']);
 			}
 		}
 	}
 }
 ?>
+

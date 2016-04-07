@@ -22,7 +22,7 @@ function processAction($action){
     case "loginfailed":
       $statement = '<div class="alert alert-info">
               The login you entered is not correct.  Please try again!
-              </div>'
+              </div>';
               return $statement;
 			break;
     default:
