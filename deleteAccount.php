@@ -3,8 +3,9 @@ include_once 'NewsCasterDatabase.php';
 $userID = $_COOKIE['ID'];
 $database = new NewsCasterDatabase();
 $query = 'delete from `users` where ID =' . $userID . '; delete from `userProfileInfo` where userID = ' . $userID . ';';
-//echo $query;
+var_dump($query);
+exit;
 $query = stripslashes($query);
 $database->db_insert($query);
-include 'logout.php';
+header('Location: ./logout.php');
 ?>
