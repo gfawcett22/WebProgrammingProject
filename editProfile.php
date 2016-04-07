@@ -19,6 +19,9 @@
         updateCountdown();
         $('#bio').change(updateCountdown);
         $('#bio').keyup(updateCountdown);
+        $('#accountDelete').click(function(){
+          return confirm('Are you sure you want to delete your account?');
+        })
       });
       function updateCountdown() {
         var remaining = 500 - $('#bio').val().length;
@@ -29,8 +32,8 @@
 </head>
 <body>
 <?php include 'indexHeader.php'; ?>
-<form id='profile' method="post" action='saveProfile.php' enctype="multipart/form-data">
   <div id='centeredDiv' class='container'>
+  <form id='profile' method="post" action='saveProfile.php' enctype="multipart/form-data">
     <div class='row'>
       <h2 class='title'>Edit Profile</h2>
     </div>
@@ -64,7 +67,14 @@
     <div class='row'>
       <input type='submit' id='editSubmit' name='editSubmit' value="Save" class='btn btn-primary'>
     </div>
+  </form>
+  <form method='post' action='deleteAccount.php'>
+    <div class='row'>
+      <input type='submit' class='btn btn-danger' value='Delete Account' name='accountDelete' id='accountDelete' />
+    </div>
+  </form>
   </div>
-</form>
+
+
 </body>
 </html>
