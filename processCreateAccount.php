@@ -33,11 +33,11 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 			if(!($usernameResult)){
 				header('Location: ./CreateAccount.php?action=error');
 			}else{
-				$IDStatus = $Database->db_select($IDQueryString);
+				$IDResult = $Database->db_select($IDQueryString);
 				/* Cookie expires when browser closes */
 				setcookie('username', $_POST['username'], false, '/', 'webdev.cs.kent.edu');
 				setcookie('password', $_POST['password'], false, '/', 'webdev.cs.kent.edu');
-				setcookie('ID', $idStatus, false, '/', 'webdev.cs.kent.edu');
+				setcookie('ID', $IDResult[0]['ID'], false, '/', 'webdev.cs.kent.edu');
 				//setcookie('username', $_POST['username'], time()+60*60*24*365, '/', 'localhost');
 				//setcookie('password', $_POST['password'], time()+60*60*24*365, '/', 'localhost');
 				//setcookie('ID', $IDResult, time()+60*60*24*365, '/', 'localhost');
