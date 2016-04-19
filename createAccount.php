@@ -1,10 +1,23 @@
 <?php
 include_once('processAction.php');
+session_start();
 
 if(isset($_GET['action'])){
 	$action = $_GET['action'];
 	$alert = processAction($action);
 	echo $alert;
+}
+
+if(isset($_SESSION['inputUsername']) && isset($_SESSION['inputEmail']) && isset($_SESSION['inputFirstName']) && isset($_SESSION['inputLastName'])){
+    $inputUserName = $_SESSION['inputUsername'];
+    $inputEmail = $_SESSION['inputEmail'];
+    $inputFirstName = $_SESSION['inputFirstName'];
+    $inputLastName = $_SESSION['inputLastName'];
+}else{
+    $inputUserName = "";
+    $inputEmail = "";
+    $inputFirstName = "";
+    $inputLastName = "";
 }
 ?>
 
@@ -28,16 +41,16 @@ if(isset($_GET['action'])){
     <br/>
     <form method="post" action="processCreateAccount.php" method="post" >
         <span>First Name:</span>
-        <input type="text" class="form-control" name="firstname" placeholder="First Name" />
+        <input type="text" class="form-control" name="firstname" placeholder="First Name" value = "<?php echo $inputFirstName; ?>" />
         <br>
         <span>Last Name:</span>
-        <input type="text" class="form-control" name="lastname" placeholder="Last Name" />
+        <input type="text" class="form-control" name="lastname" placeholder="Last Name" value = "<?php echo $inputLastName; ?>" />
         <br>
         <span>Email:</span>
-        <input type="email" class="form-control" name="email" placeholder="Email" required />
+        <input type="email" class="form-control" name="email" placeholder="Email" value = "<?php echo $inputEmail; ?>" required />
         <br>
         <span>Username:</span>
-        <input type="text" class="form-control" name="username" placeholder="Username" required />
+        <input type="text" class="form-control" name="username" placeholder="Username" value = "<?php echo $inputUserName; ?>" required />
         <br />
         <span>Password:</span>
         <input type="password" class="form-control" name="password" placeholder="Password" required />

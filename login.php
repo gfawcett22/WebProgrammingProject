@@ -1,10 +1,16 @@
 <?php
 include_once('processAction.php');
-
+session_start();
 if(isset($_GET['action'])){
 	$action = $_GET['action'];
 	$alert = processAction($action);
 	echo $alert;
+}
+
+if(isset($_SESSION['inputUsername'])){
+    $username = $_SESSION['inputUsername'];
+}else{
+    $username = "";
 }
 
 ?>
@@ -28,13 +34,13 @@ if(isset($_GET['action'])){
     <br/>
     <form method="post" action="processLogin.php" method="post">
         <span>Username</span>
-        <input type="text" class="form-control" name="username" placeholder="Username" />
+        <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $username;?>" />
         <br />
         <span>Password</span>
         <input type="password" class="form-control" name="password" placeholder="Password" />
         <br />
         <span>Remember me?</span>
-        <input type="checkbox" name="rememberme" value="1">
+        <input type="checkbox" name="rememberme" />
         <br>
         <div class="btn-group" id="login">
             <button type="submit" class="btn btn-default"><a href="index.php">Login</a></button>

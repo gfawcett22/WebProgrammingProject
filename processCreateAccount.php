@@ -1,6 +1,7 @@
 <?php
 require_once('NewsCasterDatabase.php');
 $Database = new NewsCasterDatabase();
+session_start();
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
 	//Initializing Variables to contain POST elements
@@ -9,6 +10,12 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 	$inputEmail = $_POST['email'];
 	$inputFirstName = $_POST['firstname'];
 	$inputLastName = $_POST['lastname'];
+
+	//Storing info to insert back into text boxes if account creation fails
+	$_SESSION['inputUsername'] = $inputUsername;
+	$_SESSION['inputEmail'] = $inputEmail;
+	$_SESSION['inputFirstName'] = $inputFirstName;
+	$_SESSION['inputLastName'] = $inputLastName;
 
 	//Set query Strings
 	$emailQueryString = "SELECT Email FROM users where Email= '$inputEmail'";
@@ -22,9 +29,11 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 	//var_dump($usernameStatus);
 	//Checks if username and email are valid
 	if($usernameStatus){
+		$_SESSION['inputUsername'] = "";
 		header('Location: ./CreateAccount.php?action=usernametaken');
 	}else{
 		if($emailStatus){
+			$_SESSION['inputEmail'] = "";
 			header('Location: ./CreateAccount.php?action=emailtaken');
 		}else{
 			$insertUserData = "INSERT INTO users (FirstName, LastName, Email, Username, Pass) VALUES('$inputFirstName','$inputLastName', '$inputEmail', '$inputUsername', '$inputPassword')";
