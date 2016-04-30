@@ -3,36 +3,36 @@
 ?>
 <html>
 <head>
-    <title>Edit Profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="./scripts/jquery-2.2.2.min.js"></script>
-    <script src="./scripts/jquery-ui.min.js"></script>
-    <script src="./scripts/bootstrap.min.js"></script>
+  <script src="./scripts/jquery-2.2.2.min.js"></script>
+  <script src="./scripts/jquery-ui.min.js"></script>
+  <script src="./scripts/bootstrap.min.js"></script>
 
-    <link href="./styles/jquery-ui.min.css" rel="stylesheet" />
-    <link href="./styles/bootstrap.min.css" rel="stylesheet" />
-    <link href="./styles/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="./styles/index.css" rel="stylesheet"/>
-    <script>
-      $(document).ready(function(){
-        updateCountdown();
-        $('#bio').change(updateCountdown);
-        $('#bio').keyup(updateCountdown);
-        $('#accountDelete').click(function(){
-          return confirm('Are you sure you want to delete your account?');
-        })
-      });
-      function updateCountdown() {
-        var remaining = 500 - $('#bio').val().length;
-        $('.counter').text('(' + remaining + ')');
-      }
-      
-    </script>
+  <link href="./styles/jquery-ui.min.css" rel="stylesheet" />
+  <link href="./styles/bootstrap.min.css" rel="stylesheet" />
+  <link href="./styles/bootstrap-theme.min.css" rel="stylesheet" />
+  <link href="./styles/index.css" rel="stylesheet"/>
+  <script>
+    $(document).ready(function(){
+      updateCountdown();
+      $('#bio').change(updateCountdown);
+      $('#bio').keyup(updateCountdown);
+      $('#accountDelete').click(function(){
+        return confirm('Are you sure you want to delete your account?');
+      })
+    });
+    function updateCountdown() {
+      var remaining = 500 - $('#bio').val().length;
+      $('.counter').text('(' + remaining + ')');
+    }
+
+  </script>
 </head>
 <body>
 <?php include 'indexHeader.php'; ?>
-  <div id='centeredDiv' class='container'>
+<div id='centeredDiv' class='container'>
   <form id='profile' method="post" action='saveProfile.php' enctype="multipart/form-data">
     <div class='row'>
       <h2 class='title'>Edit Profile</h2>
@@ -64,6 +64,34 @@
         <input type='text' class='data' name='location' id='location' maxlength="100" />
       </div>
     </div>
+    <div class="row">
+      <span class="text">What are your interests?</span>
+    </div>
+    <div class="row">
+      <span class="text col-md-2">News: </span>
+      <input type="checkbox" class="col-md-1" name="news" id="news">
+      <div class="col-md-9"></div>
+    </div>
+    <div class="row">
+      <span class="text col-md-2">Money: </span>
+      <input type="checkbox" class="col-md-1" name="money" id="money">
+      <div class="col-md-9"></div>
+    </div>
+    <div class="row">
+      <span class="text col-md-2">Politics: </span>
+      <input type="checkbox" class="col-md-1" name="politics" id="politics">
+      <div class="col-md-9"></div>
+    </div>
+    <div class="row">
+      <span class="text col-md-2">Sports: </span>
+      <input type="checkbox" class="col-md-1" name="sports" id="sports">
+      <div class="col-md-9"></div>
+    </div>
+    <div class="row">
+      <span class="text col-md-2">Technology: </span>
+      <input type="checkbox" class="col-md-1" name="technology" id="technology">
+      <div class="col-md-9"></div>
+    </div>
     <div class='row'>
       <input type='submit' id='editSubmit' name='editSubmit' value="Save" class='btn btn-primary'>
     </div>
@@ -73,7 +101,7 @@
       <input type='submit' class='btn btn-danger' value='Delete Account' name='accountDelete' id='accountDelete' />
     </div>
   </form>
-  </div>
+</div>
 
 
 </body>
