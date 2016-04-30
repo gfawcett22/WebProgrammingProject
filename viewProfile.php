@@ -41,6 +41,9 @@
         <div class='col-md-5'><span class='text'>Location: </span></div>
         <?php include './accessors/getLocation.php'; ?>
     </div>
+        <br>
+        <br>
+        <div class="row text">Interests: </div>
         <div>
             <?php include './accessors/getPreferences.php'; ?>
         </div>
