@@ -110,8 +110,8 @@ var printFeed = function(data){
         var imgSrc = imageURLs[0][0]['media-metadata'][1].url;
         var caption = imageURLs[0][0].caption;
         var abstract = abstracts[i];
-        var articleHTML = "<div id ='newsFeedArticle' style='outline: 1px black solid'><img src=" + imgSrc + "></img>" +
-            "<p id='caption simple-caption'>" + caption + "</p>" +
+        var articleHTML = "<div class ='newsFeedArticle' style='outline: 1px black solid'><img src=" + imgSrc + "></img>" +
+            "<p class='caption simple-caption'>" + caption + "</p>" +
             "<a href=" + url + "><h2> "+ titles[0] + "</h2></a>" +
             "<p>" + abstract + "</p></div>";
         $('#newsFeed').append(articleHTML);

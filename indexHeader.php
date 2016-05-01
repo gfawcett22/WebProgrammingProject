@@ -6,7 +6,14 @@
         </div>
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     Top News
                 </a>
             </li>
@@ -14,27 +21,27 @@
 
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Money</a>
+                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Money</a>
 
             </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Politics</a>
+                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Politics</a>
             </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sports</a>
+                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sports</a>
 
             </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Technology</a>
+                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Technology</a>
 
             </li>
         </ul>
