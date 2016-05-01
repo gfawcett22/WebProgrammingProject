@@ -6,46 +6,42 @@
         </div>
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <a href="index.php" class="navbar-brand">
                     Home
                 </a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Top News
+                <a href="index.php" class="navbar-brand">
+                    Money
                 </a>
             </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Money</a>
-
+                <a href="index.php" class="navbar-brand">
+                    Politics
+                </a>
             </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Politics</a>
+                <a href="index.php" class="navbar-brand">
+                    Sports
+                </a>
             </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sports</a>
-
+                <a href="index.php" class="navbar-brand">
+                    Technology
+                </a>
             </li>
         </ul>
-
-        <ul class="nav navbar-nav navbar-left">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle genreTab" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Technology</a>
-
-            </li>
-        </ul>
-
 
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
