@@ -24,6 +24,9 @@ body{
   margin-right:auto;
 }
 
+.newsFeedTimeline{
+  margin-top: 65px;
+}
 #bio{
   vertical-align: middle;
 }

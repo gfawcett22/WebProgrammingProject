@@ -1,0 +1,11 @@
+NYT NewsWire API Key:
+ffd0d131e95d9657a6bff51abb8aa201:5:75040868
+
+NYT Most Popular API Key:
+a648f7481f5489ed7d2b9a28ca880fbd:4:75040868
+
+NYT Top Stories API Key:
+ebe745f15135e91d77cbc5fd07bcec1d:11:75040868
+
+NYT Article Search API Key:
+b800ee95fb10637fcb125cb0d1b51705:8:75040868
