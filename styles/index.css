@@ -27,6 +27,10 @@ body{
 .newsFeedTimeline{
   margin-top: 65px;
 }
+
+#newsFeedArticle{
+  outline: 1px solid black;
+}
 #bio{
   vertical-align: middle;
 }

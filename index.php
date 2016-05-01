@@ -22,11 +22,9 @@
 <body>
   <?php include 'indexHeader.php'; ?>
   <div class="newsFeedTimeline">
-      <select id ="newsTimesSpan" onmousedown="this.value='';" onchange="myFeed(this.value);">
-          <option value='1'>Daily</option>
-          <option value='7'>Weekly</option>
-          <option value='30'>Monthly</option>
-      </select>
+      <button type="button" class="btn btn-default btn-striped" onclick="myFeed(1)">Daily</button>
+      <button type="button" class="btn btn-default btn-striped" onclick="myFeed(7)">Weekly</button>
+      <button type="button" class="btn btn-default btn-striped" onclick="myFeed(30)">Monthly</button>
   </div>
 <h1 id="newsTimeSpanHeader"></h1>
 <div id="newsFeed">

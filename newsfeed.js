@@ -19,7 +19,7 @@ var myFeed = function(timeSpan) {
         var myPrefs = data;
 
         myFeed.newsFeed = function (timeSpan) {
-            var url1 = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/national/";
+            var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/national/";
             var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
             var finalURL = url1 + timeSpan + url2;
             $.getJSON(finalURL, function (data) {
@@ -28,7 +28,7 @@ var myFeed = function(timeSpan) {
             });
         };
         myFeed.moneyFeed = function (timeSpan) {
-            var url1 = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/business/";
+            var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/business/";
             var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
             var finalURL = url1 + timeSpan + url2;
             $.getJSON(finalURL, function (data) {
@@ -36,7 +36,7 @@ var myFeed = function(timeSpan) {
             });
         };
         myFeed.politicsFeed = function (timeSpan) {
-            var url1 = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/politics/";
+            var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/politics/";
             var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
             var finalURL = url1 + timeSpan + url2;
             $.getJSON(finalURL, function (data) {
@@ -44,7 +44,7 @@ var myFeed = function(timeSpan) {
             });
         };
         myFeed.sportsFeed = function (timeSpan) {
-            var url1 = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/sports/";
+            var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/sports/";
             var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
             var finalURL = url1 + timeSpan + url2;
             $.getJSON(finalURL, function (data) {
@@ -52,7 +52,7 @@ var myFeed = function(timeSpan) {
             });
         };
         myFeed.technologyFeed = function (timeSpan) {
-            var url1 = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/technology/";
+            var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/technology/";
             var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
             var finalURL = url1 + timeSpan + url2;
             $.getJSON(finalURL, function (data) {
@@ -98,22 +98,22 @@ var printFeed = function(data){
     var imageURLs = [];
     var abstracts = [];
     var articleURL = [];
+    console.log(data);
     for(i = 0; i < 3; ++i){
-        articleURL = dataResults[i].url;
-        titles[i] = dataResults[i].title;
-        imageURLs[i] = dataResults[i].media;
-        abstracts[i] = dataResults[i].abstract;
+        articleURL[i] = dataResults[i + 5].url;
+        titles[i] = dataResults[i + 5].title;
+        imageURLs[i] = dataResults[i + 5].media;
+        abstracts[i] = dataResults[i + 5].abstract;
     }
     for(i = 0; i < 3; ++i){
         var url = articleURL[i];
-        var imgSrc = imageURLs[0][0]['media-metadata'][0].url;
+        var imgSrc = imageURLs[0][0]['media-metadata'][1].url;
         var caption = imageURLs[0][0].caption;
         var abstract = abstracts[i];
-        var articleHTML = "<img src=" + imgSrc + "></img>" +
-            "<p id='caption'>" + caption + "</p>" +
+        var articleHTML = "<div id ='newsFeedArticle' style='outline: 1px black solid'><img src=" + imgSrc + "></img>" +
+            "<p id='caption simple-caption'>" + caption + "</p>" +
             "<a href=" + url + "><h2> "+ titles[0] + "</h2></a>" +
-            "<p>" + abstract + "</p>";
+            "<p>" + abstract + "</p></div>";
         $('#newsFeed').append(articleHTML);
-        console.log(i);
     }
 }
