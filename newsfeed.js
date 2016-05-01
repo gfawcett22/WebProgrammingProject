@@ -56,6 +56,7 @@ var myFeed = function(timeSpan) {
             var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
             var finalURL = url1 + timeSpan + url2;
             $.getJSON(finalURL, function (data) {
+                console.log(data);
                 printFeed(data);
             });
         };
@@ -92,27 +93,42 @@ var handleTimeSpanHeader = function(timeSpan){
     }
 }
 
-var printFeed = function(data){
+function printFeed (data){
+    var articlesPerGenre = 5;
+    var maxRowLength = 4;
     var dataResults = data.results;
-    var titles = [];
-    var imageURLs = [];
-    var abstracts = [];
-    var articleURL = [];
-    for(i = 0; i < 3; i++){
-        articleURL[i] = dataResults[i + 5].url;
-        titles[i] = dataResults[i + 5].title;
-        imageURLs[i] = dataResults[i + 5].media;
-        abstracts[i] = dataResults[i + 5].abstract;
+    var title,imageURL, abstract, url;
+    var articleHTML = "";
+
+    for(i = 0; i < articlesPerGenre; i++){
+        //articleURL[i] = dataResults[i + 5].url;
+        //titles[i] = dataResults[i + 5].title;
+        //imageURLs[i] = dataResults[i + 5].media;
+        //abstracts[i] = dataResults[i + 5].abstract;
     }
-    for(i = 0; i < 3; ++i){
-        var url = articleURL[i];
-        var imgSrc = imageURLs[i][0]['media-metadata'][1].url;
-        var caption = imageURLs[i][0].caption;
-        var abstract = abstracts[i];
-        var articleHTML = "<div class ='newsFeedArticle' style='outline: 1px black solid'><img src=" + imgSrc + "></img>" +
-            "<p class='caption simple-caption'>" + caption + "</p>" +
-            "<a href=" + url + "><h2> "+ titles[i] + "</h2></a>" +
-            "<p>" + abstract + "</p></div>";
-        $('#newsFeed').append(articleHTML);
+    for (j = 0; j < maxRowLength; ++j) {
+        //start a new row
+        if (j == 0)
+            articleHTML += "<div class='row' />";
+
+        for(i = 0; i < articlesPerGenre; ++i) {
+
+            url = dataResults[i].url;
+            title = dataResults[i].title;
+            imageURL = dataResults[i].media;
+            abstract = dataResults[i].abstract;
+            var imgSrc = imageURL[0]['media-metadata'][1].url;
+            var caption = imageURL[0].caption;
+            abstract = dataResults[i].abstract;
+            articleHTML += "<div class ='newsFeedArticle col-md-3'>" +
+                "<img src=" + imgSrc + "></img>" +
+                "<p class='caption simple-caption'>" + caption + "</p>" +
+                "<a href=" + url + "><h2> " + title + "</h2></a>" +
+                "<p>" + abstract + "</p></div>";
+            $('#newsFeed').append(articleHTML);
+        }
+        //close the row
+        if (j==3)
+            articleHTML += "</div>";
     }
 }
