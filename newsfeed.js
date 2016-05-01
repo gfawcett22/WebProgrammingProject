@@ -98,21 +98,21 @@ var printFeed = function(data){
     var imageURLs = [];
     var abstracts = [];
     var articleURL = [];
-    console.log(data);
-    for(i = 0; i < 3; ++i){
+    for(i = 0; i < 3; i++){
         articleURL[i] = dataResults[i + 5].url;
         titles[i] = dataResults[i + 5].title;
         imageURLs[i] = dataResults[i + 5].media;
         abstracts[i] = dataResults[i + 5].abstract;
     }
+    console.log(imageURLs);
     for(i = 0; i < 3; ++i){
         var url = articleURL[i];
-        var imgSrc = imageURLs[0][0]['media-metadata'][1].url;
-        var caption = imageURLs[0][0].caption;
+        var imgSrc = imageURLs[i][0]['media-metadata'][1].url;
+        var caption = imageURLs[i][0].caption;
         var abstract = abstracts[i];
         var articleHTML = "<div id ='newsFeedArticle' style='outline: 1px black solid'><img src=" + imgSrc + "></img>" +
             "<p id='caption simple-caption'>" + caption + "</p>" +
-            "<a href=" + url + "><h2> "+ titles[0] + "</h2></a>" +
+            "<a href=" + url + "><h2> "+ titles[i] + "</h2></a>" +
             "<p>" + abstract + "</p></div>";
         $('#newsFeed').append(articleHTML);
     }
