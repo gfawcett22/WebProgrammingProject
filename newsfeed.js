@@ -7,75 +7,109 @@ Image:   imageURLs[0][0]['media-metadata'][i].url
 
  */
 
-var myNewsData = [];
 $(document).ready(function(data){
-    myFeed(1);
+    getPreferenceFeed(1);
 });
 
-var myFeed = function(timeSpan) {
-    handleTimeSpanHeader(timeSpan);
+function getMoneyFeed(timespan){
+    handleTimeSpanHeader(timespan);
     $('#newsFeed').contents().remove();
-    $.getJSON('getPrefs.php', function(data) {
-        var myPrefs = data;
-
-        myFeed.newsFeed = function (timeSpan) {
-            var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/national/";
-            var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
-            var finalURL = url1 + timeSpan + url2;
-            $.getJSON(finalURL, function (data) {
-                printFeed(data);
-
-            });
-        };
-        myFeed.moneyFeed = function (timeSpan) {
-            var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/business/";
-            var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
-            var finalURL = url1 + timeSpan + url2;
-            $.getJSON(finalURL, function (data) {
-                printFeed(data);
-            });
-        };
-        myFeed.politicsFeed = function (timeSpan) {
-            var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/politics/";
-            var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
-            var finalURL = url1 + timeSpan + url2;
-            $.getJSON(finalURL, function (data) {
-                printFeed(data);
-            });
-        };
-        myFeed.sportsFeed = function (timeSpan) {
-            var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/sports/";
-            var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
-            var finalURL = url1 + timeSpan + url2;
-            $.getJSON(finalURL, function (data) {
-                printFeed(data);
-            });
-        };
-        myFeed.technologyFeed = function (timeSpan) {
-            var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/technology/";
-            var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
-            var finalURL = url1 + timeSpan + url2;
-            $.getJSON(finalURL, function (data) {
-                console.log(data);
-                printFeed(data);
-            });
-        };
-        if (myPrefs[0].news == 1) {
-            myFeed.newsFeed(timeSpan);
-        }
-        if (myPrefs[0].money == 1) {
-            myFeed.moneyFeed(timeSpan);
-        }
-        if (myPrefs[0].politics == 1) {
-            myFeed.politicsFeed(timeSpan);
-        }
-        if (myPrefs[0].sports == 1) {
-            myFeed.sportsFeed(timeSpan);
-        }
-        if (myPrefs[0].technology == 1) {
-            myFeed.technologyFeed(timeSpan);
-        }
+    var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/business/";
+    var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
+    var finalURL = url1 + timespan + url2;
+    $.getJSON(finalURL, function (data) {
+        printFeed(data);
+        //console.log(data.results);
+        //dataResult = data.results;
     });
+}
+function getPoliticsFeed(timespan){
+    handleTimeSpanHeader(timespan);
+    $('#newsFeed').contents().remove();
+    var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/politics/";
+    var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
+    var finalURL = url1 + timespan + url2;
+    $.getJSON(finalURL, function (data) {
+        printFeed(data);
+        //console.log(data.results);
+        //dataResult = data.results;
+    });
+}
+function getSportsFeed(timespan){
+    handleTimeSpanHeader(timespan);
+    $('#newsFeed').contents().remove();
+    var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/sports/";
+    var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
+    var finalURL = url1 + timespan + url2;
+    $.getJSON(finalURL, function (data) {
+        printFeed(data);
+        //console.log(data.results);
+        //dataResult = data.results;
+    });
+}
+function getTechnologyFeed(timespan){
+    handleTimeSpanHeader(timespan);
+    $('#newsFeed').contents().remove();
+    var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/technology/";
+    var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
+    var finalURL = url1 + timespan + url2;
+    $.getJSON(finalURL, function (data) {
+        printFeed(data);
+        console.log(data.results);
+        //dataResult = data.results;
+    });
+}
+
+function getPreferenceFeed(timespan){
+    handleTimeSpanHeader(timespan);
+    $('#newsFeed').contents().remove();
+    var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/sports/";
+    var url2 = ".json?offset=0&api-key=a648f7481f5489ed7d2b9a28ca880fbd%3A4%3A75040868";
+    var finalURL = url1 + timespan + url2;
+    $.getJSON(finalURL, function (data) {
+        printFeed(data);
+        //console.log(data.results);
+        //dataResult = data.results;
+    });
+}
+
+function myFeed(timespan, genre) {
+    handleTimeSpanHeader(timespan);
+    $('#newsFeed').contents().remove();
+    switch (genre){
+        case 'home':
+            $.getJSON('getPrefs.php', function (data) {
+                var myPrefs = data;
+                if (myPrefs[0].money == 1) {
+                    console.log(getMoneyFeed(timespan));
+                    finalFeed= finalFeed.concat(getMoneyFeed(timespan));
+                }
+                if (myPrefs[0].politics == 1) {
+                    finalFeed = finalFeed.concat(getPoliticsFeed(timespan));
+                }
+                if (myPrefs[0].sports == 1) {
+                    finalFeed= finalFeed.concat(getSportsFeed(timespan));
+                }
+                if (myPrefs[0].technology == 1) {
+                    finalFeed = finalFeed.concat(getTechnologyFeed(timespan));
+                }
+            });
+            break;
+        case 'money':
+            finalFeed = finalFeed.concat(getMoneyFeed(timespan));
+            break;
+        case 'politics':
+            finalFeed = finalFeed.concat(getPoliticsFeed(timespan));
+            break;
+        case 'sports':
+            finalFeed= finalFeed.concat(getSportsFeed(timespan));
+            break;
+        case 'technology':
+            finalFeed = finalFeed.concat(getTechnologyFeed(timespan));
+            break;
+    }
+    console.log(finalFeed);
+    //printFeed(finalFeed);
 }
 
 var handleTimeSpanHeader = function(timeSpan){
@@ -93,30 +127,19 @@ var handleTimeSpanHeader = function(timeSpan){
     }
 }
 
-function printFeed (data){
+function printFeed (data) {
+    //console.log(data);
     var maxArticles = 20;
     var maxRowLength = 4;
     var rowCount = 0;
     var dataResults = data.results;
-    var title,imageURL, abstract, url;
+    var title, imageURL, abstract, url;
     var articleHTML = "";
 
-    // for(i = 0; i < articlesPerGenre; i++){
-    //     //articleURL[i] = dataResults[i + 5].url;
-    //     //titles[i] = dataResults[i + 5].title;
-    //     //imageURLs[i] = dataResults[i + 5].media;
-    //     //abstracts[i] = dataResults[i + 5].abstract;
-    // }
-    
-
-    for(i = 0; i < maxArticles; i++) {
-        // for (j = 0; j < maxRowLength; j++) {
-        //     //start a new row
-        //     if (j == 0)
-        //         articleHTML += "<div class='row' />";
+    for (i = 0; i < maxArticles; ++i) {
+        //start new row
         if (rowCount == 0)
-            articleHTML += "<div class='row'>"
-        
+            articleHTML += "<div class='row'>";
 
         url = dataResults[i].url;
         title = dataResults[i].title;
@@ -126,25 +149,17 @@ function printFeed (data){
         var caption = imageURL[0].caption;
         abstract = dataResults[i].abstract;
         articleHTML += "<div class ='newsFeedArticle col-md-3'>" +
-            "<img src=" + imgSrc + "></img>" +
-            "<p class='caption simple-caption'>" + caption + "</p>" +
+            "<img src=" + imgSrc + " class='newsFeedImage' alt='" + caption + "'></img>" +
+                // "<p class='caption simple-caption'>" + caption + "</p>" +
             "<a href=" + url + "><h2> " + title + "</h2></a>" +
             "<p>" + abstract + "</p></div>";
-        //close the row
-        // if (j==3)
-        //     articleHTML += "</div>";
+        //articleHTML += "</div>";
         ++rowCount;
-        if (rowCount==4){
+        //close row div
+        if (rowCount == 4) {
             articleHTML += "</div>";
             rowCount = 0;
-            $('#newsFeed').append(articleHTML);
         }
-        
-        
-        
-            
-            
-        //}
-        
     }
+    $('#newsFeed').append(articleHTML);
 }
