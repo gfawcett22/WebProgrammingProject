@@ -14,7 +14,7 @@ if(isset($fileToMove)) {
 //do nothing
     } else {
         //header('Location: ./viewProfile.php?action=filefailed');
-        exit();
+        //exit();
     }
 }
 

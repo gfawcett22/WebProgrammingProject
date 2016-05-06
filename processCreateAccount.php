@@ -10,6 +10,28 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 	$inputEmail = $_POST['email'];
 	$inputFirstName = $_POST['firstname'];
 	$inputLastName = $_POST['lastname'];
+	//get preference values when creating account
+	if(isset($_POST['money'])){
+		$money = 1;
+	}else{
+		$money=0;
+	}
+
+	if(isset($_POST['politics'])){
+		$politics = 1;
+	}else{
+		$politics = 0;
+	}
+	if(isset($_POST['sports'])){
+		$sports = 1;
+	}else{
+		$sports = 0;
+	}
+	if(isset($_POST['technology'])){
+		$technology = 1;
+	}else{
+		$technology = 0;
+	}
 
 	//Storing info to insert back into text boxes if account creation fails
 	$_SESSION['inputUsername'] = $inputUsername;
@@ -43,6 +65,11 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 				header('Location: ./CreateAccount.php?action=error');
 			}else{
 				$IDResult = $Database->db_select($IDQueryString);
+				$id = $IDResult[0]['ID'];
+				$insertProfileInfo = "INSERT INTO userProfileInfo (userID, bio, location, profilePicPath, money, politics, sports, technology) VALUES ('$id', '', '', '', '$money', '$politics', '$sports', '$technology')";
+				$temp = stripslashes($insertProfileInfo);
+				//echo $temp;
+				$returnProfileInsert = $Database->db_query($temp);
 				/* Cookie expires when browser closes */
 				setcookie('username', $_POST['username'], false, '/', 'webdev.cs.kent.edu');
 				setcookie('password', $_POST['password'], false, '/', 'webdev.cs.kent.edu');

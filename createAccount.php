@@ -28,6 +28,7 @@ if(isset($_SESSION['inputUsername']) && isset($_SESSION['inputEmail']) && isset(
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./styles/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/login.css" rel="stylesheet"/>
+    <script href="./scripts/jquery-2.2.2.min.js"></script>
     <script src="./scripts/bootstrap.min.js"></script>
 </head>
 <body>
@@ -39,7 +40,7 @@ if(isset($_SESSION['inputUsername']) && isset($_SESSION['inputEmail']) && isset(
     </div>
     <br/>
     <br/>
-    <form method="post" action="processCreateAccount.php" method="post" >
+    <form method="post" action="processCreateAccount.php" >
         <span>First Name:</span>
         <input type="text" class="form-control" name="firstname" placeholder="First Name" value = "<?php echo $inputFirstName; ?>" />
         <br>
@@ -55,7 +56,30 @@ if(isset($_SESSION['inputUsername']) && isset($_SESSION['inputEmail']) && isset(
         <span>Password:</span>
         <input type="password" class="form-control" name="password" placeholder="Password" required />
         <br />
-        <div class="btn-group" id="login">
+        <div class="row">
+            <span class="text">What are your interests?</span>
+        </div>
+        <div class="row">
+            <span class="text col-md-4">Money: </span>
+            <input type="checkbox" class="col-md-4" name="money" id="money">
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <span class="text col-md-4">Politics: </span>
+            <input type="checkbox" class="col-md-4" name="politics" id="politics">
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <span class="text col-md-4">Sports: </span>
+            <input type="checkbox" class="col-md-4" name="sports" id="sports">
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <span class="text col-md-4">Technology: </span>
+            <input type="checkbox" class="col-md-4" name="technology" id="technology">
+            <div class="col-md-4"></div>
+        </div>
+        <div class='btn-group' id="login">
             <button type="submit" class="btn btn-default">Create Account</button>
         </div>
     </form>

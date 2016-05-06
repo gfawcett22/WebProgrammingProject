@@ -26,3 +26,9 @@ body{
 #createBtn{
     float:right;
 }
+.text{
+    font-size: 20px;
+}
+.row{
+    padding: 5px;
+}
