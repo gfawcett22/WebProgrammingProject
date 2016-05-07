@@ -30,8 +30,12 @@ if(isset($_SESSION['inputUsername'])){
             <label id="title">News Caster 3000</label>
         </a>
     </div>
-    <br/>
-    <br/>
+    
+    <div class="row">
+        <span class="col-md-12 info">
+            Welcome to News Caster 3000, the news you want. Please sign in or create an account to view news tailored for you!
+        </span>
+    </div>
     <form method="post" action="processLogin.php" method="post">
         <span>Username</span>
         <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $username;?>" />

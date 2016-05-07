@@ -7,9 +7,9 @@
 	$query = 'select location from `userProfileInfo` where userID =' . $userID;
 	$result = $database->db_select($query);
 	if(empty($result)){
-		echo '<div class="col-md-7"><span class="profileInfo">Edit your profile to add a location. </span></div>';
+		echo 'Edit your profile to add a location';
 	}
 	else{
-		echo '<div class="col-md-7"><span class="profileInfo">' . $result[0]['location'] . '</span></div>';
+		echo $result[0]['location'];
 	}
 ?>

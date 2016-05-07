@@ -31,15 +31,15 @@
       <h2 class='title'><?php echo 'Hello, '. $_COOKIE['username'] . '!' ;?></h2>
     </div>
     <div class='row'>
-      <?php include './accessors/getProfilePic.php'; ?>
+      <img src="<?php include './accessors/getProfilePic.php'; ?>" id="profilePic"/>
     </div>
     <div class='row'>
         <div class='col-md-5'><span class='text'>Bio: </span></div>
-        <?php include './accessors/getBio.php'; ?>
+        <div class="col-md-7"><span class="profileInfo"><?php include './accessors/getBio.php'; ?></span></div>
     </div>
     <div class='row'>
         <div class='col-md-5'><span class='text'>Location: </span></div>
-        <?php include './accessors/getLocation.php'; ?>
+        <div class="col-md-7"><span class="profileInfo"><?php include './accessors/getLocation.php'; ?></span></div>
     </div>
         <br>
         <br>

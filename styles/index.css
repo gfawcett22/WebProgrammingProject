@@ -59,8 +59,8 @@ body{
   margin-bottom: 20px;
 }
 #profilePic{
-  max-width:200px;
-  max-height:200px;
+  max-width:250px;
+  max-height:250px;
   margin:8px;
 }
 #editSubmit{

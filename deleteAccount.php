@@ -15,6 +15,9 @@ $temp = $database->db_insert($query);
 var_dump($query);
 var_dump($temp);
 //exit;
+setcookie('ID','',time()-3600,'/','webdev.cs.kent.edu');
+setcookie('username','',time()-3600,'/','webdev.cs.kent.edu');
+setcookie('password','',time()-3600,'/','webdev.cs.kent.edu');
 
 header('Location: logout.php');
 ?>

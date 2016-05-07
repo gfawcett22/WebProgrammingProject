@@ -16,7 +16,6 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 	}else{
 		$money=0;
 	}
-
 	if(isset($_POST['politics'])){
 		$politics = 1;
 	}else{

@@ -1,5 +1,5 @@
 <?php
-
+ $action = 'edit';
 ?>
 <html>
 <head>
@@ -38,14 +38,14 @@
       <h2 class='title'>Edit Profile</h2>
     </div>
     <div class='row'>
-      <?php include './accessors/getProfilePic.php'; ?>
+      <img src="<?php include './accessors/getProfilePic.php'; ?>" id="profilePic" />
     </div>
     <div class='row'>
       <div class='col-md-5'>
         <span class='text'>Select an image for your profile: </span>
       </div>
       <div class='col-md-7'>
-        <input type='file' id='picUpload' name='picUpload' >
+        <input type='file' id='picUpload' name='picUpload' placeholder="<?php include './accessors/getProfilePicFileName.php'; ?>">
       </div>
     </div>
     <div class='row'>
@@ -53,7 +53,7 @@
         <span class='text' >Tell us about yourself: <sub class='counter'></sub> </span>
       </div>
       <div class='col-md-7'>
-        <textarea id='bio' class='data' name='bio' form='profile' rows='3' maxlength="500"></textarea>
+        <textarea id='bio' class='data' name='bio' form='profile' rows='3' maxlength="500" ><?php include './accessors/getBio.php' ?></textarea>
       </div>
     </div>
     <div class='row'>
@@ -61,37 +61,14 @@
         <span class='text'>Location: </span>
       </div>
       <div class='col-md-7'>
-        <input type='text' class='data' name='location' id='location' maxlength="100" />
+        <input type='text' class='data' name='location' id='location' maxlength="100" value="<?php include './accessors/getLocation.php' ?>" />
       </div>
     </div>
     <div class="row">
       <span class="text">What are your interests?</span>
     </div>
-    <div class="row">
-      <span class="text col-md-2">News: </span>
-      <input type="checkbox" class="col-md-1" name="news" id="news">
-      <div class="col-md-9"></div>
-    </div>
-    <div class="row">
-      <span class="text col-md-2">Money: </span>
-      <input type="checkbox" class="col-md-1" name="money" id="money">
-      <div class="col-md-9"></div>
-    </div>
-    <div class="row">
-      <span class="text col-md-2">Politics: </span>
-      <input type="checkbox" class="col-md-1" name="politics" id="politics">
-      <div class="col-md-9"></div>
-    </div>
-    <div class="row">
-      <span class="text col-md-2">Sports: </span>
-      <input type="checkbox" class="col-md-1" name="sports" id="sports">
-      <div class="col-md-9"></div>
-    </div>
-    <div class="row">
-      <span class="text col-md-2">Technology: </span>
-      <input type="checkbox" class="col-md-1" name="technology" id="technology">
-      <div class="col-md-9"></div>
-    </div>
+
+    <?php include './accessors/getPreferences.php' ?>
     <div class='row'>
       <input type='submit' id='editSubmit' name='editSubmit' value="Save" class='btn btn-primary'>
     </div>
