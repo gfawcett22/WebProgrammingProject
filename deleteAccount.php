@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION = array();
+session_destroy();
 require_once 'NewsCasterDatabase.php';
 $userID = $_COOKIE['ID'];
 $database = new NewsCasterDatabase();
@@ -18,6 +21,7 @@ var_dump($temp);
 setcookie('ID','',time()-3600,'/','webdev.cs.kent.edu');
 setcookie('username','',time()-3600,'/','webdev.cs.kent.edu');
 setcookie('password','',time()-3600,'/','webdev.cs.kent.edu');
+
 
 header('Location: logout.php');
 ?>
