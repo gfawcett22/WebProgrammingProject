@@ -135,7 +135,6 @@ function printFeed (data) {
     var dataResults = data.results;
     var title, imageURL, abstract, url;
     var articleHTML = "";
-
     for (i = 0; i < maxArticles; ++i) {
         //start new row
         if (rowCount == 0)
@@ -145,8 +144,10 @@ function printFeed (data) {
         title = dataResults[i].title;
         imageURL = dataResults[i].media;
         abstract = dataResults[i].abstract;
-        var imgSrc = imageURL[0]['media-metadata'][1].url;
-        var caption = imageURL[0].caption;
+        if(imageURL[0] !== undefined) {
+            var imgSrc = imageURL[0]['media-metadata'][1]['url'];
+            var caption = imageURL[0].caption;
+        }
         abstract = dataResults[i].abstract;
         articleHTML += "<div class ='newsFeedArticle col-md-3'>" +
             "<img src=" + imgSrc + " class='newsFeedImage' alt='" + caption + "'></img>" +
