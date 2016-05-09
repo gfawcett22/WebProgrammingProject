@@ -6,12 +6,20 @@ Image:   imageURLs[0][0]['media-metadata'][i].url
 
 
  */
+var genre;
 
 $(document).ready(function(data){
     getPreferenceFeed(1);
 });
 
+function switchTimeSpan(timespan){
+    if(genre == 'home')
+        getPreferenceFeed(timespan)
+    else
+        myFeed(timespan, genre);
+}
 function getMoneyFeed(timespan){
+    genre = "money";
     handleTimeSpanHeader(timespan);
     $('#newsFeed').contents().remove();
     var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/business/";
@@ -24,6 +32,7 @@ function getMoneyFeed(timespan){
     });
 }
 function getPoliticsFeed(timespan){
+    genre = "politics";
     handleTimeSpanHeader(timespan);
     $('#newsFeed').contents().remove();
     var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/politics/";
@@ -36,6 +45,7 @@ function getPoliticsFeed(timespan){
     });
 }
 function getSportsFeed(timespan){
+    genre = "sports";
     handleTimeSpanHeader(timespan);
     $('#newsFeed').contents().remove();
     var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/sports/";
@@ -48,6 +58,7 @@ function getSportsFeed(timespan){
     });
 }
 function getTechnologyFeed(timespan){
+    genre = "technology";
     handleTimeSpanHeader(timespan);
     $('#newsFeed').contents().remove();
     var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/technology/";
@@ -61,6 +72,7 @@ function getTechnologyFeed(timespan){
 }
 
 function getPreferenceFeed(timespan){
+    genre = "home";
     handleTimeSpanHeader(timespan);
     $('#newsFeed').contents().remove();
     var url1 = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/sports/";
@@ -76,6 +88,7 @@ function getPreferenceFeed(timespan){
 function myFeed(timespan, genre) {
     handleTimeSpanHeader(timespan);
     $('#newsFeed').contents().remove();
+    var finalFeed = ""
     switch (genre){
         case 'home':
             $.getJSON('getPrefs.php', function (data) {

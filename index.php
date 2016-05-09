@@ -22,14 +22,13 @@
 <body>
   <?php include 'indexHeader.php'; ?>
   <div class="newsFeedTimeline">
-      <button type="button" class="btn btn-default btn-striped" onclick="myFeed(1)">Daily</button>
-      <button type="button" class="btn btn-default btn-striped" onclick="myFeed(7)">Weekly</button>
-      <button type="button" class="btn btn-default btn-striped" onclick="myFeed(30)">Monthly</button>
+      <button type="button" class="btn btn-default btn-striped" onclick="switchTimeSpan(1)">Daily</button>
+      <button type="button" class="btn btn-default btn-striped" onclick="switchTimeSpan(7)">Weekly</button>
+      <button type="button" class="btn btn-default btn-striped" onclick="switchTimeSpan(30)">Monthly</button>
   </div>
 <h1 id="newsTimeSpanHeader"></h1>
 <div id="newsFeed">
     
 </div>
-
 </body>
 </html>
