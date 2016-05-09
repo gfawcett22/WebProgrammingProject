@@ -6,14 +6,14 @@
         </div>
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a href="index.php" class="navbar-brand" >
+                <a href="index.php" onclick="myFeed(1, 'home');" class="navbar-brand" >
                     Home
                 </a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a onclick="getMoneyFeed(1);" class="navbar-brand" id="money">
+                <a onclick="myFeed(1, 'money');" class="navbar-brand" id="money">
                     Money
                 </a>
             </li>
@@ -21,7 +21,7 @@
 
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a onclick="getPoliticsFeed(1);" class="navbar-brand">
+                <a onclick="myFeed(1, 'politics');" class="navbar-brand">
                     Politics
                 </a>
             </li>
@@ -29,7 +29,7 @@
 
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a onclick="getSportsFeed(1);" class="navbar-brand">
+                <a onclick="myFeed(1, 'sports');" class="navbar-brand">
                     Sports
                 </a>
             </li>
@@ -37,7 +37,7 @@
 
         <ul class="nav navbar-nav navbar-left">
             <li class="dropdown">
-                <a onclick="getTechnologyFeed(1);" class="navbar-brand">
+                <a onclick="myFeed(1, 'technology');" class="navbar-brand">
                     Technology
                 </a>
             </li>

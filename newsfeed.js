@@ -9,7 +9,7 @@ Image:   imageURLs[0][0]['media-metadata'][i].url
 var genre;
 
 $(document).ready(function(data){
-    getPreferenceFeed(1);
+    myFeed(1, 'home');
 });
 
 function switchTimeSpan(timespan){
@@ -66,7 +66,7 @@ function getTechnologyFeed(timespan){
     var finalURL = url1 + timespan + url2;
     $.getJSON(finalURL, function (data) {
         printFeed(data);
-        console.log(data.results);
+        //console.log(data.results);
         //dataResult = data.results;
     });
 }
@@ -94,34 +94,33 @@ function myFeed(timespan, genre) {
             $.getJSON('getPrefs.php', function (data) {
                 var myPrefs = data;
                 if (myPrefs[0].money == 1) {
-                    console.log(getMoneyFeed(timespan));
-                    finalFeed= finalFeed.concat(getMoneyFeed(timespan));
+                    getMoneyFeed(timespan);
                 }
                 if (myPrefs[0].politics == 1) {
-                    finalFeed = finalFeed.concat(getPoliticsFeed(timespan));
+                    getPoliticsFeed(timespan);
                 }
                 if (myPrefs[0].sports == 1) {
-                    finalFeed= finalFeed.concat(getSportsFeed(timespan));
+                    getSportsFeed(timespan);
                 }
                 if (myPrefs[0].technology == 1) {
-                    finalFeed = finalFeed.concat(getTechnologyFeed(timespan));
+                    getTechnologyFeed(timespan);
                 }
             });
             break;
         case 'money':
-            finalFeed = finalFeed.concat(getMoneyFeed(timespan));
+            getMoneyFeed(timespan);
             break;
         case 'politics':
-            finalFeed = finalFeed.concat(getPoliticsFeed(timespan));
+            getPoliticsFeed(timespan);
             break;
         case 'sports':
-            finalFeed= finalFeed.concat(getSportsFeed(timespan));
+            getSportsFeed(timespan);
             break;
         case 'technology':
-            finalFeed = finalFeed.concat(getTechnologyFeed(timespan));
+            getTechnologyFeed(timespan);
             break;
     }
-    console.log(finalFeed);
+    //console.log(finalFeed);
     //printFeed(finalFeed);
 }
 

@@ -9,6 +9,7 @@
   <script src="./scripts/jquery-2.2.2.min.js"></script>
   <script src="./scripts/jquery-ui.min.js"></script>
   <script src="./scripts/bootstrap.min.js"></script>
+  <script src="./newsfeed.js"></script>
 
   <link href="./styles/jquery-ui.min.css" rel="stylesheet" />
   <link href="./styles/bootstrap.min.css" rel="stylesheet" />
